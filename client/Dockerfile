@@ -5,13 +5,13 @@ FROM node:16 as build
 WORKDIR /app
 
 #copy the files package.json and yarn.lock
-COPY client/package*.json client/yarn.lock ./
+COPY client/package*.json client/yarn.lock /app
 
 #run install dependencies
 RUN yarn install
 
 #copy all client files
-COPY client/ ./
+COPY client/. /app
 
 RUN yarn build
 
