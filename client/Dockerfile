@@ -19,3 +19,8 @@ RUN yarn build
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
+# Expose port for Nginx
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
